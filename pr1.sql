@@ -33,3 +33,8 @@ UPDATE employees
 SET salary = salary * 1.1
 WHERE department = 'HR';
 
+UPDATE employees
+SET salary = salary * 1.50
+WHERE salary BETWEEN 20000 AND 30000;
+
+SELECT first_name, last_name,email FROM employees WHERE email LIKE '%den%';
