@@ -25,6 +25,6 @@ ALTER TABLE movies RENAME TO cinemaMovies;
 
 UPDATE cinemaMovies SET duration = duration * 0.1 WHERE genre IN ('horror');
 
-DELETE cinemaMovies 
+DELETE FROM cinemaMovies WHERE rating < 4;
 
 DROP TABLE movies;
