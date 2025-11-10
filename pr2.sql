@@ -15,8 +15,8 @@ INSERT INTO employess VALUES
 (4, 'MICHAIL', 'DUSHKIN', 'Sales', 40000 , '2025-09-30', 'miha@ya.ru'),
 (5, 'TATIANA', 'PETROV', 'Sales', 40000 , '2025-09-27', 'tata@inbox.ru');
 
-UPDATE employees SET salary = 85000 WHERE department = 'IT';
+UPDATE employess SET salary = 85000 WHERE department = 'IT';
 
-UPDATE employees SET salary = 90000 WHERE salary BETWEEN 50000 AND 85000;
+UPDATE employess SET salary = 90000 WHERE salary BETWEEN 50000 AND 85000;
 
 DROP TABLE employess;
