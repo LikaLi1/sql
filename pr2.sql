@@ -23,3 +23,7 @@ DROP TABLE employess;
 
 UPDATE employess SET email = REPLACE(email, 'ya.ru', 'ya_ru')
 WHERE email LIKE '%ya.ru';
+
+UPDATE employess SET salary = 80000 WHERE hire_date < '2025-01-01';
+
+UPDATE employess SET salary = salary * 1.15 WHERE department = ''
