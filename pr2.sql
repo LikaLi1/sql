@@ -18,3 +18,5 @@ INSERT INTO employess VALUES
 UPDATE employees SET salary = 85000 WHERE department = 'IT';
 
 UPDATE employees SET salary = 90000 WHERE salary BETWEEN 50000 AND 85000;
+
+DROP TABLE employess;
