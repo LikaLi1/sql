@@ -20,3 +20,6 @@ UPDATE employess SET salary = 85000 WHERE department = 'IT';
 UPDATE employess SET salary = 90000 WHERE salary BETWEEN 50000 AND 85000;
 
 DROP TABLE employess;
+
+UPDATE employess SET email = REPLACE(email, 'ya.ru', 'ya_ru')
+WHERE email LIKE '%ya.ru';
