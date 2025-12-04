@@ -18,12 +18,6 @@ SELECT department, AVG(salary)
 FROM employees
 GROUP BY department;
 
-HAVING - после GROUP и используется только с агрегю 
-SELECT department, COUNT(*)
-FROM employees 
-GROUP BY department 
-HAVING COUNT(*) > 2;
-
 SELECT COUNT(*) FROM employees;
 SELECT COUNT(DISTINCT department) FROM employees;
 SELECT SUM(salary) FROM employees;
