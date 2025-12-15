@@ -10,7 +10,7 @@ CREATE TABLE employees(
     date_of_employment TEXT NOT NULL
 );
 
-INSERT TABLE employees (first_name, last_name, age, phone, mail, passport, salary, date_of_employment)
+INSERT INTO employees (first_name, last_name, age, phone, mail, passport, salary, date_of_employment)
 VALUES 
 ('Ivan', 'Ivanov', 30, '+7 912 345-67-89', 'ivanov@gmail.com', '11-00-091481', 50000, '2020-01-15'),
 ('Maria', 'Petrova', 28, '+7 923 456-78-90', 'petrova@mail.ru', '95-94-843182', 55000, '2019-03-10'),
@@ -29,7 +29,7 @@ SELECT AVG(salary) FROM employees;
 
 SELECT SUM(salary) FROM employees;
 
-SELECT COUNT(*) FROM employees WHERE = 55000;
+SELECT COUNT(*) FROM employees WHERE salary= 55000;
 
 SELECT age, COUNT(*) FROM employees
 GROUP BY age
