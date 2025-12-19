@@ -24,9 +24,9 @@ CREATE TABLE book_issues(
 INSERT INTO readers (reader_name, registration_date)
 VALUES 
 ('Иван', '2023-01-10'),
-('Мария', '2023-02-15'),
+('Мария', '2025-02-15'),
 ('Алексей', '2023-03-20'),
-('Ольга', '2023-04-05'),
+('Ольга', '2024-04-05'),
 ('Дмитрий', '2023-05-12');
 
 INSERT INTO books (book_title, author, year)
@@ -39,9 +39,9 @@ VALUES
 
 INSERT INTO book_issues (reader_id, book_id, issue_date, return_date)
 VALUES 
-(1, 2, '2023-06-01', '2023-06-15'),
+(1, 2, '2021-06-01', '2023-06-15'),
 (3, 1, '2023-06-05', '2023-06-20'),
-(2, 4, '2023-06-10', '2023-06-25');
+(2, 4, '2024-06-10', '2023-06-25');
 
 SELECT reader_id, reader_name FROM readers;
 
@@ -49,27 +49,33 @@ SELECT book_title, author FROM books;
 
 SELECT issue_id, reader_id, book_id, issue_date, return_date FROM book_issues;
 
-SELECT book_title, issue_date FROM book_issues
-JOIN books ON book_issues.book_id = book_id;
+SELECT books.book_title, book_issues.issue_date
+FROM book_issues
+JOIN books ON book_issues.book_id = books.book_id;
 
+SELECT books.book_title, book_issues.issue_date 
+FROM book_issues
+JOIN books ON book_issues.book_id = books.book_id;
 
+SELECT readers.reader_name, book_issues.issue_date 
+FROM book_issues
+JOIN readers ON book_issues.reader_id = readers.reader_id;
 
+SELECT readers.reader_name, books.book_title, book_issues.issue_date 
+FROM book_issues
+JOIN readers ON book_issues.reader_id = readers.reader_id
+JOIN books ON book_issues.book_id = books.book_id;
 
-Выполните следующие запросы:
+SELECT books.book_title FROM book_issues
+JOIN books ON book_issues.book_id = books.book_id WHERE book_issues.reader_id = 5;
 
-Показать, какие книги были выданы (названия книг и даты выдачи)
+SELECT DISTINCT readers.reader_name FROM book_issues
+JOIN readers ON book_issues.reader_id = readers.reader_id WHERE book_issues.book_id = 3;
 
-Показать, кому были выданы книги (имена читателей и даты выдачи)
+SELECT books.book_title, book_issues.issue_date 
+FROM book_issues
+JOIN books ON book_issues.book_id = books.book_id 
+WHERE strftime('%Y-%m', book_issues.issue_date) = '2024-01';
 
-Показать полную информацию о выдачах: имя читателя, название книги, дата выдачи
-
-Найти все книги, которые были выданы читателю с номером билета 5
-
-Найти всех читателей, которые брали книгу с номером 3
-
-Показать книги, которые были выданы в январе 2024 года
-
-Показать читателей, зарегистрированных в 2023 году
-
-
-К работе прикрепить не менее  7 скриншотов, с таблицами и результатами запросов.
+SELECT reader_name, registration_date FROM readers
+WHERE strftime('%Y', registration_date) = '2023';
